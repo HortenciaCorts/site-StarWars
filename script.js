@@ -1,3 +1,27 @@
+/* MENU */
+//Pegando as informações do HTML
+const btnMenu = document.getElementById('btn-menu');
+const nav = document.querySelector('#nav');
+const container = document.getElementById('container');
+const icon = $('svg:first');
+//Função para abrir o menu do mobile e tablete
+function openMenu(){
+    //Adicionar a classe active no nav e container
+    nav.classList.toggle('active');
+    container.classList.toggle('active');
+    //Se a classe active estiver ativa então iremos mudar o icone do menu
+    //E caso ela venha a fechar iremos mudar novamente para o icone inicial
+    if(nav.classList.contains('active')){
+        icon.replaceWith(feather.icons['x'].toSvg());
+    }else if(!nav.classList.contains('active')){
+        icon.replaceWith(feather.icons['align-justify'].toSvg());
+    }
+}
+//Ao clicar no botão de menu é acionado a função openMenu
+btnMenu.addEventListener('click', openMenu);
+
+
+/* BUSCANDO INFORMAÇÕES DA API EXTERNA */
 const personagensContador = document.getElementById('personagens');
 const luasContador = document.getElementById('luas');
 const planetasContador = document.getElementById('planetas');
